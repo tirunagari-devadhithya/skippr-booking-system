@@ -263,6 +263,24 @@ All final implementation, testing, debugging, customization, and deployment were
 Built as part of the Skippr Full Stack Development Internship Assignment.
 
 ---
+# 🤖 AI Assistance Declaration
+
+## AI Tools Used
+- ChatGPT
+
+## How AI Was Used During Development
+
+ChatGPT was used as a development assistant for:
+
+- Understanding project requirements and planning the application architecture
+- Designing the frontend and backend folder structure
+- Developing and refining React components and Express API endpoints
+- Designing the MongoDB schema and REST API structure
+- Debugging frontend, backend, database, and deployment issues
+- Improving UI/UX design and responsiveness
+- Creating technical documentation and README content
+
+AI assistance was used to improve development efficiency. The final application architecture, implementation decisions, testing, customization, and deployment were completed by the developer.
 
 ## ⭐ Thank You
 
