@@ -242,3 +242,7 @@ button:disabled {
     background: #b91c1c;
     transform: none;
 }
+.booking-table td:first-child {
+    font-weight: bold;
+    color: #2563eb;
+}

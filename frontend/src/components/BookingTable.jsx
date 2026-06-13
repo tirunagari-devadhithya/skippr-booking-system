@@ -3,6 +3,7 @@ function BookingTable({ bookings, updateStatus, deleteBooking }) {
         <table className="booking-table">
             <thead>
                 <tr>
+                    <th>Booking ID</th>
                     <th>Customer</th>
                     <th>Apartment</th>
                     <th>Service</th>
@@ -16,13 +17,21 @@ function BookingTable({ bookings, updateStatus, deleteBooking }) {
                 {bookings.map((booking) => (
                     <tr key={booking._id}>
 
-                        <td>{booking.customerName}</td>
+                        <td>
+                            {booking._id.slice(-6).toUpperCase()}
+                        </td>
+
+                        <td>
+                            {booking.customerName}
+                        </td>
 
                         <td>
                             {booking.apartmentNumber}
                         </td>
 
-                        <td>{booking.service}</td>
+                        <td>
+                            {booking.service}
+                        </td>
 
                         <td>
                             {new Date(
