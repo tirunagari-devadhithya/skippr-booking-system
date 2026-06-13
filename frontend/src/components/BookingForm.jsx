@@ -13,7 +13,7 @@ function BookingForm() {
     });
 
     const [message, setMessage] = useState("");
-
+    const [whatsappMessage, setWhatsappMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
 
@@ -32,6 +32,7 @@ function BookingForm() {
 
         setLoading(true);
         setMessage("");
+        setWhatsappMessage("");
 
         try {
 
@@ -40,8 +41,19 @@ function BookingForm() {
                 formData
             );
 
-
             setMessage(response.data.message);
+
+
+            const whatsappText = 
+`Hi ${formData.customerName},
+
+Your ${formData.service} booking has been confirmed for ${formData.bookingDate} at ${formData.timeSlot}.
+
+Thank you for choosing Skippr.`;
+
+            setWhatsappMessage(
+                encodeURIComponent(whatsappText)
+            );
 
 
             // Clear form
@@ -54,6 +66,7 @@ function BookingForm() {
                 timeSlot: "",
             });
 
+
         } catch (error) {
 
             setMessage(
@@ -61,11 +74,12 @@ function BookingForm() {
                 "Failed to create booking"
             );
 
+            setWhatsappMessage("");
+
             console.log(error);
 
         } finally {
 
-            // Runs for both success and failure
             setLoading(false);
         }
     };
@@ -165,13 +179,23 @@ function BookingForm() {
             </form>
 
 
-            {
-                message && (
-                    <p className="message">
-                        {message}
-                    </p>
-                )
-            }
+            {message && (
+                <p className="message">
+                    {message}
+                </p>
+            )}
+
+
+            {whatsappMessage && (
+                <a
+                    className="whatsapp-btn"
+                    href={`https://wa.me/?text=${whatsappMessage}`}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    📱 Send via WhatsApp
+                </a>
+            )}
 
         </div>
     );
